@@ -7,12 +7,15 @@ import { CONTACT_EMAIL, WEB3FORMS_KEY } from '@/lib/contactConfig';
 export default function ContactModal({ product, onClose }) {
   const { lang, tx } = useLanguage();
   const t = tx.contactModal;
-  const name = product.name[lang] || product.name.en;
+  const name = product ? product.name[lang] || product.name.en : null;
 
-  const defaultMessage =
-    lang === 'el'
+  const defaultMessage = product
+    ? lang === 'el'
       ? `Γεια σας,\n\nΘα ήθελα να ρωτήσω για το προϊόν "${name}" (${product.weight}).`
-      : `Hello,\n\nI'd like to ask about "${name}" (${product.weight}).`;
+      : `Hello,\n\nI'd like to ask about "${name}" (${product.weight}).`
+    : lang === 'el'
+      ? 'Γεια σας,\n\nΘα ήθελα να επικοινωνήσω μαζί σας.'
+      : "Hello,\n\nI'd like to get in touch.";
 
   const [visitorName, setVisitorName] = useState('');
   const [visitorEmail, setVisitorEmail] = useState('');
@@ -40,15 +43,18 @@ export default function ContactModal({ product, onClose }) {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject:
-            lang === 'el'
+          subject: product
+            ? lang === 'el'
               ? `Ενδιαφέρον για: ${name} (${product.weight})`
-              : `Interest in: ${name} (${product.weight})`,
-          from_name: 'Helios Figs — Contact to Buy',
+              : `Interest in: ${name} (${product.weight})`
+            : lang === 'el'
+              ? 'Επικοινωνία από την ιστοσελίδα'
+              : 'Contact from website',
+          from_name: 'Helios Figs — Contact',
           replyto: visitorEmail,
           name: visitorName,
           email: visitorEmail,
-          product: `${name} (${product.weight})`,
+          ...(product ? { product: `${name} (${product.weight})` } : {}),
           message,
         }),
       });
@@ -77,10 +83,14 @@ export default function ContactModal({ product, onClose }) {
           ×
         </button>
 
-        <h2 className="font-serif text-2xl text-ink mb-1 pr-6">{t.title}</h2>
-        <p className="text-sm text-ink-soft mb-5">
-          {name} ({product.weight})
-        </p>
+        <h2 className={`font-serif text-2xl text-ink pr-6 ${product ? 'mb-1' : 'mb-5'}`}>
+          {product ? t.title : t.generalTitle}
+        </h2>
+        {product && (
+          <p className="text-sm text-ink-soft mb-5">
+            {name} ({product.weight})
+          </p>
+        )}
 
         {status === 'success' ? (
           <p className="text-olive font-medium py-4">{t.success}</p>

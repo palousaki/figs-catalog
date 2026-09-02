@@ -1,11 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { CONTACT_EMAIL } from '@/lib/contactConfig';
+import ContactModal from '@/components/ContactModal';
 
 export default function ContactPage() {
   const { tx } = useLanguage();
   const t = tx.contact;
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="container mx-auto px-6 py-16">
@@ -28,13 +30,16 @@ export default function ContactPage() {
           ))}
         </div>
 
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
           className="block w-full py-3.5 bg-brand text-white font-semibold rounded text-center hover:bg-brand-hover transition"
         >
           {t.emailCta}
-        </a>
+        </button>
       </div>
+
+      {open && <ContactModal onClose={() => setOpen(false)} />}
     </div>
   );
 }

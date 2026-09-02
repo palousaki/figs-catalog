@@ -6,7 +6,7 @@ import { translations } from '@/lib/translations';
 const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState('el');
 
   useEffect(() => {
     const stored = localStorage.getItem('figs-lang');
