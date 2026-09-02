@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": { "en": "Organic Dried Figs", "el": "Βιολογικά Αποξηραμένα Σύκα" },
+    "description": {
+      "en": "Our certified organic dried figs, handpicked at peak ripeness and dried entirely by hand in Melenikitsi, Serres. No pesticides, no additives, no preservatives — just pure, naturally sweet figs. A perfect size to try or gift.",
+      "el": "Τα πιστοποιημένα βιολογικά αποξηραμένα σύκα μας, μαζεμένα στο χέρι στην κορυφαία ωριμότητά τους και αποξηραμένα εξ ολοκλήρου στο χέρι στο Μελενικίτσι Σερρών. Χωρίς φυτοφάρμακα, χωρίς πρόσθετα, χωρίς συντηρητικά — μόνο καθαρά, φυσικά γλυκά σύκα. Ιδανικό μέγεθος για δοκιμή ή δώρο."
+    },
+    "price": 4.9,
+    "weight": "250g",
+    "image": "/dried_figs.png",
+    "category": "retail",
+    "inStock": true,
+    "stock": 100,
+    "rating": 0,
+    "reviews": 0
+  },
+  {
+    "id": 2,
+    "name": { "en": "Organic Dried Figs", "el": "Βιολογικά Αποξηραμένα Σύκα" },
+    "description": {
+      "en": "Our certified organic dried figs, handpicked at peak ripeness and dried entirely by hand in Melenikitsi, Serres. No pesticides, no additives, no preservatives — just pure, naturally sweet figs. Our most popular size for everyday snacking.",
+      "el": "Τα πιστοποιημένα βιολογικά αποξηραμένα σύκα μας, μαζεμένα στο χέρι στην κορυφαία ωριμότητά τους και αποξηραμένα εξ ολοκλήρου στο χέρι στο Μελενικίτσι Σερρών. Χωρίς φυτοφάρμακα, χωρίς πρόσθετα, χωρίς συντηρητικά — μόνο καθαρά, φυσικά γλυκά σύκα. Το πιο δημοφιλές μέγεθος για καθημερινό σνακ."
+    },
+    "price": 8.9,
+    "weight": "500g",
+    "image": "/dried_figs.png",
+    "category": "retail",
+    "inStock": true,
+    "stock": 80,
+    "rating": 0,
+    "reviews": 0
+  },
+  {
+    "id": 3,
+    "name": { "en": "Organic Dried Figs", "el": "Βιολογικά Αποξηραμένα Σύκα" },
+    "description": {
+      "en": "Our certified organic dried figs, handpicked at peak ripeness and dried entirely by hand in Melenikitsi, Serres. No pesticides, no additives, no preservatives — just pure, naturally sweet figs. Great value for regular fig lovers.",
+      "el": "Τα πιστοποιημένα βιολογικά αποξηραμένα σύκα μας, μαζεμένα στο χέρι στην κορυφαία ωριμότητά τους και αποξηραμένα εξ ολοκλήρου στο χέρι στο Μελενικίτσι Σερρών. Χωρίς φυτοφάρμακα, χωρίς πρόσθετα, χωρίς συντηρητικά — μόνο καθαρά, φυσικά γλυκά σύκα. Εξαιρετική αξία για τους λάτρεις του σύκου."
+    },
+    "price": 17.9,
+    "weight": "1kg",
+    "image": "/dried_figs.png",
+    "category": "retail",
+    "inStock": true,
+    "stock": 50,
+    "rating": 0,
+    "reviews": 0
+  },
+  {
+    "id": 4,
+    "name": { "en": "Organic Dried Figs", "el": "Βιολογικά Αποξηραμένα Σύκα" },
+    "description": {
+      "en": "Our certified organic dried figs, handpicked at peak ripeness and dried entirely by hand in Melenikitsi, Serres. No pesticides, no additives, no preservatives — just pure, naturally sweet figs. Wholesale pack for retailers, cafés, and bulk buyers.",
+      "el": "Τα πιστοποιημένα βιολογικά αποξηραμένα σύκα μας, μαζεμένα στο χέρι στην κορυφαία ωριμότητά τους και αποξηραμένα εξ ολοκλήρου στο χέρι στο Μελενικίτσι Σερρών. Χωρίς φυτοφάρμακα, χωρίς πρόσθετα, χωρίς συντηρητικά — μόνο καθαρά, φυσικά γλυκά σύκα. Συσκευασία χονδρικής για καταστήματα, καφέ και μεγάλες παραγγελίες."
+    },
+    "price": 129.9,
+    "weight": "10kg",
+    "image": "/dried_figs.png",
+    "category": "wholesale",
+    "inStock": true,
+    "stock": 15,
+    "rating": 0,
+    "reviews": 0
+  }
+]
