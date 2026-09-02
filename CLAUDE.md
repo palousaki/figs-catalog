@@ -56,10 +56,18 @@ into `out/`; there is no Node server at runtime.
   tabs via `?category=retail|wholesale`), `app/products/[id]/page.js`
   (detail — `generateStaticParams()` over `data/products.json`),
   `app/about/page.js`, `app/contact/page.js`.
-- **"Contact to Buy"**: `components/ContactToBuyButton.js` builds a
-  `mailto:` link with a pre-filled subject/body naming the product. The
-  destination address is hardcoded as `CONTACT_EMAIL` in that file **and**
-  separately in `app/contact/page.js` — keep both in sync if it changes.
+- **"Contact to Buy"**: `components/ContactToBuyButton.js` opens
+  `components/ContactModal.js`, a form (name/email/message, message
+  pre-filled naming the product) that submits via client-side `fetch` to
+  [Web3Forms](https://web3forms.com) — a free form-backend API, so it works
+  for every visitor regardless of whether they have a mail client configured
+  (a plain `mailto:` link silently does nothing for such visitors, which is
+  why this was changed from the original `mailto:`-only implementation — see
+  the sibling project `sunset-view` for the same pattern). The Contact page
+  (`app/contact/page.js`) still uses a plain `mailto:` link — that one wasn't
+  changed. Both the destination email and the Web3Forms access key live in
+  `lib/contactConfig.js` (`CONTACT_EMAIL`, `WEB3FORMS_KEY`) — that's the one
+  place to update either.
 - **No state management needed** — no cart, no auth, no client-only data
   beyond the language toggle.
 
@@ -117,17 +125,24 @@ mechanism between the two repos.
 3. **Confirm the deploy actually works** — check the Actions tab after the
    first push, then open the live `github.io` URL and click through every
    page, confirm images/fonts load (not just the homepage — this is where a
-   `basePath` mismatch shows up), and test the mailto CTA in a real browser.
-4. **Contact email is a placeholder.** `elenipalou@gmail.com` is currently
-   hardcoded in `components/ContactToBuyButton.js` and `app/contact/page.js`
-   as a stand-in because the real business address didn't exist yet at
-   creation time — swap to the real one (both places) before this goes live
-   publicly.
-5. **Product photography.** All 4 products currently reuse the single
+   `basePath` mismatch shows up), and test the "Contact to Buy" modal *and*
+   the Contact page's mailto CTA in a real browser.
+4. ~~Set a real Web3Forms access key.~~ **Done** — `lib/contactConfig.js` has
+   a real `WEB3FORMS_KEY`. It's committed in plaintext (deliberately — the
+   key is meant to be public/client-side and ends up in the shipped JS bundle
+   either way, since this is a static export with no server to hide it
+   behind; moving it to an env var wouldn't hide it from visitors, only from
+   git history, and the owner chose not to bother with that tradeoff).
+5. **Contact email is a placeholder.** `elenipalou@gmail.com` is currently
+   set as `CONTACT_EMAIL` in `lib/contactConfig.js` as a stand-in because the
+   real business address didn't exist yet at creation time — swap to the
+   real one before this goes live publicly (used by both the "Contact to
+   Buy" modal and the Contact page's mailto link).
+6. **Product photography.** All 4 products currently reuse the single
    `/dried_figs.png` image inherited from `figs-shop` — there's no real
    per-product photography in the repo. Not blocking, but worth doing before
    a real launch.
-6. **Custom domain (optional)** — if a custom domain is added later via
+7. **Custom domain (optional)** — if a custom domain is added later via
    GitHub Pages settings, `basePath`/`assetPrefix` in `next.config.mjs`
    should be cleared back to `''` (they're only needed for the
    `<user>.github.io/<repo>` subpath case).

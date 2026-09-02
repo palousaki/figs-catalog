@@ -2,7 +2,8 @@
 
 Static, read-only product catalog for Helios Figs. Same visual design as the
 main `figs-shop` app, but no login, no cart, no checkout — visitors browse
-products and use a "Contact to Buy" button (a `mailto:` link) to reach out.
+products and use a "Contact to Buy" button (a form submitted via
+[Web3Forms](https://web3forms.com)) to reach out.
 
 Zero server dependency: no database, no auth, no payment provider. Built with
 Next.js static export (`output: 'export'`) so it can be hosted for free on
@@ -30,9 +31,11 @@ npx serve out
   `/dried_figs.png`).
 - **Text/translations**: `lib/translations.js` (`en` and `el` keys — always
   update both).
-- **Contact email**: the address used by the "Contact to Buy" buttons and the
-  Contact page is set in `components/ContactToBuyButton.js` and
-  `app/contact/page.js` (`CONTACT_EMAIL`).
+- **Contact email and Web3Forms key**: `lib/contactConfig.js`
+  (`CONTACT_EMAIL`, `WEB3FORMS_KEY`) — used by both the "Contact to Buy"
+  modal and the Contact page. Get a free `WEB3FORMS_KEY` at
+  https://web3forms.com/ (just an email, no signup); without it, "Contact to
+  Buy" submissions will fail.
 
 ## Deploying to GitHub Pages
 

@@ -1,8 +1,7 @@
 'use client';
 
 import { useLanguage } from '@/context/LanguageContext';
-
-const CONTACT_EMAIL = 'elenipalou@gmail.com';
+import { CONTACT_EMAIL } from '@/lib/contactConfig';
 
 export default function ContactPage() {
   const { tx } = useLanguage();
