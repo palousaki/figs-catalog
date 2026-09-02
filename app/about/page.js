@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { withBasePath } from '@/lib/basePath';
 
 export default function AboutPage() {
   const { tx } = useLanguage();
@@ -20,7 +21,7 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 px-6">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="relative h-80 rounded-md overflow-hidden">
-            <Image src="/dried_figs.png" alt="Our Figs" fill className="object-cover" />
+            <Image src={withBasePath('/dried_figs.png')} alt="Our Figs" fill className="object-cover" />
           </div>
           <div>
             <h2 className="font-serif text-3xl text-ink mb-4">{t.passionTitle}</h2>

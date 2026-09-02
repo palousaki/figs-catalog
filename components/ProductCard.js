@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { withBasePath } from '@/lib/basePath';
 import ContactToBuyButton from '@/components/ContactToBuyButton';
 
 export default function ProductCard({ product }) {
@@ -15,7 +16,7 @@ export default function ProductCard({ product }) {
     <div className="bg-white border border-line rounded-md hover:shadow-md transition-shadow duration-200 overflow-hidden flex flex-col">
       <Link href={`/products/${product.id}`} className="block relative w-full h-48">
         <Image
-          src={product.image}
+          src={withBasePath(product.image)}
           alt={name}
           fill
           className="object-cover"

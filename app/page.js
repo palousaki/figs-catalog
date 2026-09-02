@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ProductCard from '@/components/ProductCard';
 import { useLanguage } from '@/context/LanguageContext';
+import { withBasePath } from '@/lib/basePath';
 import products from '@/data/products.json';
 
 const featured = products.filter((p) => p.inStock).slice(0, 4);
@@ -88,7 +89,7 @@ export default function HomePage() {
       <section id="story" className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center px-6 py-20 md:py-28 scroll-mt-24">
         <div className="relative h-72 md:h-96 rounded-md overflow-hidden order-2 md:order-1">
           <Image
-            src="/story-figs-drying.jpg"
+            src={withBasePath('/story-figs-drying.jpg')}
             alt={lang === 'el' ? 'Σύκα απλωμένα να στεγνώσουν στον ήλιο' : 'Figs laid out to dry in the sun'}
             fill
             className="object-cover"

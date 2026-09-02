@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { withBasePath } from '@/lib/basePath';
 import ContactToBuyButton from '@/components/ContactToBuyButton';
 import ProductCard from '@/components/ProductCard';
 
@@ -29,7 +30,7 @@ export default function ProductDetailContent({ product, related }) {
         {/* Image */}
         <div className="relative h-80 md:h-[440px] rounded-lg overflow-hidden">
           <Image
-            src={product.image}
+            src={withBasePath(product.image)}
             alt={name}
             fill
             className="object-cover"

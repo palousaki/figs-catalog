@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { withBasePath } from '@/lib/basePath';
 
 function BarsIcon() {
   return (
@@ -32,7 +33,7 @@ export default function Header() {
           href="/"
           className="flex items-center gap-2 font-serif italic text-2xl text-ink"
         >
-          <Image src="/logo_no_bg.png" alt="Helios Figs" width={32} height={32} />
+          <Image src={withBasePath('/logo_no_bg.png')} alt="Helios Figs" width={32} height={32} />
           <span>Helios Figs</span>
         </Link>
 
