@@ -74,7 +74,10 @@ into `out/`; there is no Node server at runtime.
 ## Relationship to `figs-shop`
 
 Ported from `figs-shop` and kept **verbatim**: `tailwind.config.js` (the
-oklch `brand`/`ink`/`olive`/`fig`/`parchment`/`line` palette), `app/globals.css`,
+oklch `brand`/`ink`/`olive`/`fig`/`parchment`/`line` palette — **except**
+`fig`, changed here from purple to warm brown, and the logo/favicon, recolored
+from purple to golden, because the products are green figs, not dark ones),
+`app/globals.css`,
 `context/LanguageContext.js`, fonts (Inter/Instrument Serif/Caveat via
 `next/font/google` in `app/layout.js`), and `app/about/page.js`.
 

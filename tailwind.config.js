@@ -26,7 +26,7 @@ module.exports = {
           soft: 'oklch(46% 0.028 58)',
         },
         olive: 'oklch(46% 0.08 135)',    // secondary accent — provenance/trust icons
-        fig: 'oklch(32% 0.09 322)',      // tertiary accent — fig-cut mark, certification
+        fig: 'oklch(40% 0.07 60)',       // tertiary accent — fig-cut mark, certification (warm brown, matches the golden logo; was fig-purple oklch(32% 0.09 322))
         parchment: 'oklch(97% 0.015 85)', // main page background
         line: 'oklch(86% 0.018 75)',      // hairline borders
       },
